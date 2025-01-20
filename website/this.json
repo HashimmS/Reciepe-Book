@@ -1,0 +1,29 @@
+this.add({ 
+role: 
+"movement",cmd:"ra 
+wMoves", 
+}, (msg, reply) =>{var 
+err=null; 
+var rawMoves=[]; 
+varpos=msg.piece.position; 
+switch (msg.piece.piece) 
+{case'R': 
+rawMoves = 
+rankAndFile(pos);break; 
+case'B': 
+rawMoves = 
+diagonal(pos);break; 
+case'Q': 
+rawMoves=rankAndFile(pos) 
+.concat(diagonal(pos));br 
+eak; 
+case'K': 
+rawMoves=rankAndFile(pos,1) 
+.concat(diagonal(pos, 
+1))break; 
+default: 
+err = "unhandled " + 
+msg.piece;break; 
+}; 
+reply(err,rawMoves); 
+}); 

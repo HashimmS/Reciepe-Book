@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Recipe Book</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: url('image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6);
+            height: 100%;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        header {
+            text-align: center;
+            padding: 80px 20px;
+            color: #fff;
+        }
+        header h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+        .navbar {
+            padding: 1rem 2rem;
+        }
+        .navbar-nav .nav-link {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #0056b3;
+        }
+        section {
+            background: #fff;
+            padding: 60px 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+        .recipes-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .btn-filter {
+            padding: 10px 20px;
+        }
+        .recipes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .recipe {
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        .recipe:hover {
+            transform: translateY(-5px);
+        }
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .recipe h3 {
+            margin: 15px 0 10px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        .recipe p {
+            color: #666;
+            font-size: 1rem;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact form input, .contact form textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .contact form button {
+            padding: 15px 30px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .contact form button:hover {
+            background: #0056b3;
+        }
+        footer {
+            padding: 20px 0;
+            color: #fff;
+            background: #333;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <header>
+        <h1>Indian Recipe Book</h1>
+        <p>Discover the rich flavors of India</p>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Indian Recipe Book</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#recipes">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About This Book</h2>
+            <p>Welcome to the Indian Recipe Book, your gateway to the vibrant and diverse culinary traditions of India. Here you'll find a collection of delicious recipes that showcase the rich flavors and spices that are the hallmark of Indian cuisine.</p>
+        </section>
+
+        <section id="recipes">
+            <h2>Our Recipes</h2>
+            <div class="recipes-filter">
+                <button class="btn btn-primary btn-filter" onclick="filterRecipes('veg')">Veg</button>
+                <button class="btn btn-primary btn-filter" onclick="filterRecipes('non-veg')">Non-Veg</button>
+                <button class="btn btn-primary btn-filter" onclick="filterRecipes('all')">All</button>
+            </div>
+            <div class="recipes">
+                <div class="recipe veg">
+                    <a href="paneer-tikka.html">
+                        <img src="image2.jpg" alt="Paneer Tikka">
+                        <h3>Paneer Tikka</h3>
+                        <p>Grilled paneer cubes marinated in a spicy yogurt mixture, a vegetarian delight.</p>
+                    </a>
+                </div>
+                <div class="recipe non-veg">
+                    <a href="chicken-curry.html">
+                        <img src="image1.jpg" alt="Chicken Curry">
+                        <h3>Chicken Curry</h3>
+                        <p>A classic Indian dish made with tender chicken cooked in a flavorful curry sauce.</p>
+                    </a>
+                </div>
+                <div class="recipe non-veg">
+                    <a href="biryani.html">
+                        <img src="image3.jpg" alt="Biryani">
+                        <h3>Biryani</h3>
+                        <p>A fragrant rice dish made with aromatic spices and your choice of meat or vegetables.</p>
+                    </a>
+                </div>
+                <div class="recipe veg">
+                    <a href="dal-makhani.html">
+                        <img src="image4.jpg" alt="Dal Makhani">
+                        <h3>Dal Makhani</h3>
+                        <p>A creamy and rich lentil dish cooked with butter and cream.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Your Name</label>
+                <input id="name" type="text" placeholder="Your Name" required>
+                <label for="email">Your Email</label>
+                <input id="email" type="email" placeholder="Your Email" required>
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Indian Recipe Book. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterRecipes(category) {
+            const recipes = document.querySelectorAll('.recipes .recipe');
+            recipes.forEach(recipe => {
+                if (category === 'all') {
+                    recipe.classList.remove('hidden');
+                } else {
+                    recipe.classList.toggle('hidden', !recipe.classList.contains(category));
+                }
+            });
+        }
+    </script>
+</body>
+</html>
